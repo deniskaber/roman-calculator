@@ -1,6 +1,6 @@
 import userEvent from '@testing-library/user-event';
 import { render, screen } from '@testing-library/react';
-import Home from './Home';
+import Home from '@/pages/index';
 
 const setup = () => {
   render(<Home />);
@@ -13,7 +13,7 @@ const setup = () => {
   return { inputEl, outputEl, user };
 };
 
-describe('Home e2e', () => {
+describe('Home', () => {
   it('displays converted number in output field on user input', async () => {
     const { inputEl, outputEl, user } = setup();
 
