@@ -5,50 +5,60 @@ import * as converterMock from '../../lib/utils/arabic-to-roman-numeral-convert'
 
 jest.mock('../../lib/utils/arabic-to-roman-numeral-convert');
 
-describe('Home', () => {
-  let input: HTMLInputElement;
-  let output: HTMLInputElement;
+const setup = () => {
+  render(<Home />);
+
+  const inputEl = screen.getByLabelText('Input a number here:');
+  const outputEl = screen.getByLabelText('Converted Roman Numeral:');
 
   const user = userEvent.setup();
+
+  return { inputEl, outputEl, user };
+};
+
+describe('Home', () => {
   const latinToRomanNumeralConvertSpy = jest
     .spyOn(converterMock, 'arabicToRomanNumeralConvert')
     .mockImplementation((input: number) => {
       return `${input} converted`;
     });
 
-  beforeEach(() => {
-    render(<Home />);
-
-    input = screen.getByLabelText('Input a number here:');
-    output = screen.getByLabelText('Converted Roman Numeral:');
-  });
-
   it('renders a number input', () => {
-    expect(input).toBeInTheDocument();
+    const { inputEl } = setup();
+
+    expect(inputEl).toBeInTheDocument();
   });
 
   it('renders an output field', () => {
-    expect(input).toBeInTheDocument();
+    const { inputEl } = setup();
+
+    expect(inputEl).toBeInTheDocument();
   });
 
   it('uses arabicToRomanNumeralConvert to make number conversion', async () => {
-    await user.click(input);
+    const { inputEl, user } = setup();
+
+    await user.click(inputEl);
     await user.keyboard('123');
 
     expect(latinToRomanNumeralConvertSpy).toHaveBeenCalledWith(123);
   });
 
   it('displays converted number in output field on user input', async () => {
-    await user.click(input);
+    const { inputEl, outputEl, user } = setup();
+
+    await user.click(inputEl);
     await user.keyboard('123');
 
-    expect((output as HTMLInputElement).value).toBe('123 converted');
+    expect((outputEl as HTMLInputElement).value).toBe('123 converted');
   });
 
   it('validates user input to be a number between 1 and 1000 inclusive', async () => {
-    await user.click(input);
+    const { inputEl, outputEl, user } = setup();
+
+    await user.click(inputEl);
     await user.keyboard('0');
 
-    expect((output as HTMLInputElement).value).toBe('');
+    expect((outputEl as HTMLInputElement).value).toBe('');
   });
 });

@@ -2,23 +2,24 @@ import userEvent from '@testing-library/user-event';
 import { render, screen } from '@testing-library/react';
 import Home from './Home';
 
-describe('Home e2e', () => {
-  let input: HTMLInputElement;
-  let output: HTMLInputElement;
+const setup = () => {
+  render(<Home />);
+
+  const inputEl = screen.getByLabelText('Input a number here:');
+  const outputEl = screen.getByLabelText('Converted Roman Numeral:');
 
   const user = userEvent.setup();
 
-  beforeEach(() => {
-    render(<Home />);
+  return { inputEl, outputEl, user };
+};
 
-    input = screen.getByLabelText('Input a number here:');
-    output = screen.getByLabelText('Converted Roman Numeral:');
-  });
-
+describe('Home e2e', () => {
   it('displays converted number in output field on user input', async () => {
-    await user.click(input);
+    const { inputEl, outputEl, user } = setup();
+
+    await user.click(inputEl);
     await user.keyboard('123');
 
-    expect((output as HTMLInputElement).value).toBe('CXXIII');
+    expect((outputEl as HTMLInputElement).value).toBe('CXXIII');
   });
 });

@@ -1,29 +1,45 @@
-# Next.js + Jest
+# Roman Numeral Converter
 
-This example shows how to configure Jest to work with Next.js.
+This is a simple application to convert Arabic number to Roman Numerals.
 
-This includes Next.js' built-in support for Global CSS, CSS Modules and TypeScript.
+This project uses [Next.js](https://nextjs.org/docs/getting-started). If you're not familiar with it, [a quick learning course](https://nextjs.org/learn/basics/create-nextjs-app) could be a great starting point.
 
 ## How to Use
 
-Quickly get started using [Create Next App](https://github.com/vercel/next.js/tree/canary/packages/create-next-app#readme)!
+Prerequisites:
 
-In your terminal, run the following command:
+* [Node.js 12.22.0](https://nodejs.org/) or later
+* [yarn 1.22.0](https://classic.yarnpkg.com/en/docs/install) or later
+
+### Development mode
+
+To run the project locally in development mode, do
 
 ```bash
-npx create-next-app --example with-jest with-jest-app
+yarn 
+yarn run dev
 ```
 
-```bash
-yarn create next-app --example with-jest with-jest-app
-```
+then you should be able to open http://localhost:3000 in your browser and see the main page of the application.
+
+In this mode you can develop the application and see all the changes in the browser as the system automatically rebuilds it.
+
+### Production build
+
+To run the project in production mode do
 
 ```bash
-pnpm create next-app --example with-jest with-jest-app
+yarn 
+yarn run build
+```
+
+then if you want to run it in production mode do
+```bash
+yarn run start
 ```
 
 ## Run Jest Tests
 
 ```bash
-npm test
+yarn run test
 ```
