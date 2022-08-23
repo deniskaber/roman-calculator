@@ -1,3 +1,5 @@
+import romanNumeral from 'roman-numeral';
+
 export const latinToRomanNumeralConvert = (latinNumber: number): string => {
-  return `${latinNumber} converted`;
+  return romanNumeral.convert(latinNumber);
 };

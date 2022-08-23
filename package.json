@@ -11,7 +11,8 @@
   "dependencies": {
     "next": "latest",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "roman-numeral": "^0.2.6"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "5.16.4",

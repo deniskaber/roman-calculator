@@ -2515,6 +2515,11 @@ rimraf@^3.0.0:
   dependencies:
     glob "^7.1.3"
 
+roman-numeral@^0.2.6:
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/roman-numeral/-/roman-numeral-0.2.6.tgz#03fecb55ac57150015cf1e200db31d83b8c33513"
+  integrity sha512-jEPCxziIKY9ig27szc8jTHbd/VFkaIMsL6t0562Tv48rZzA7ivc0Y2C5LndTSeM+d1bZqiWfeGl/TpSKVTTOUQ==
+
 safe-buffer@~5.1.1:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"
