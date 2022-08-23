@@ -16,23 +16,3 @@
   align-items: stretch;
   gap: 12px;
 }
-
-.form-field {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.number-input {
-  width: 150px;
-}
-
-.number-input[readonly] {
-  background-color: #e9ecef;
-}
-
-.invalid-caption {
-  font-size: 12px;
-  text-align: end;
-  color: red;
-}

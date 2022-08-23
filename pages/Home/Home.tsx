@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { ChangeEvent, useState } from 'react';
 import { useConvertedRomanNumeral } from '../../lib/hooks/useConvertedRomanNumeral';
 import styles from './Home.module.css';
+import { FormField } from '@/components/FormField';
 
 export default function Home() {
   const [numberText, setNumberText] = useState('');
@@ -22,32 +23,27 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles['main-area']}>
-        <div>
-          <label className={styles['form-field']}>
-            Input a number here:
-            <input
-              className={styles['number-input']}
-              type="number"
-              value={numberText}
-              onChange={handleInputChange}
-            />
-          </label>
-          {isInvalidInput && (
-            <div className={styles['invalid-caption']}>
-              value should be between {minPossibleValue} and {maxPossibleValue}
-            </div>
-          )}
-        </div>
+      <header>
+        <h1>Arabic to Roman Numerals converter</h1>
+      </header>
 
-        <label className={styles['form-field']}>
-          Converted Roman Numeral:
-          <input
-            className={styles['number-input']}
-            value={romanNumber}
-            readOnly
-          />
-        </label>
+      <main className={styles['main-area']}>
+        <FormField
+          className={styles['form-field']}
+          type="number"
+          value={numberText}
+          labelText="Input a number here:"
+          isInvalid={isInvalidInput}
+          validationMessage={`value should be between ${minPossibleValue} and ${maxPossibleValue}`}
+          onChange={handleInputChange}
+        />
+
+        <FormField
+          className={styles['form-field']}
+          value={romanNumber}
+          labelText="Converted Roman Numeral:"
+          readOnly
+        />
       </main>
     </div>
   );
