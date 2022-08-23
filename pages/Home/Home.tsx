@@ -6,6 +6,8 @@ import { useState } from 'react';
 export default function Home() {
   const [numberText, setNumberText] = useState('');
 
+  const convertedNumber = numberText + ' converted';
+
   return (
     <div className={styles.container}>
       <Head>
@@ -25,7 +27,11 @@ export default function Home() {
 
         <label>
           Your converted Roman Numeral:
-          <input className={styles['number-input']} readOnly />
+          <input
+            className={styles['number-input']}
+            value={convertedNumber}
+            readOnly
+          />
         </label>
       </main>
     </div>
