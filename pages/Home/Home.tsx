@@ -15,7 +15,7 @@ export default function Home() {
 
       <main>
         <label>
-          Input a latin number here:
+          Input a Latin number here:
           <input
             className={styles['number-input']}
             value={numberText}
