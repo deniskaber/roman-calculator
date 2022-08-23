@@ -2,11 +2,12 @@ import Head from 'next/head';
 
 import styles from './Home.module.css';
 import { useState } from 'react';
+import { latinToRomanNumeralConvert } from '../../lib/utils/latin-to-roman-numeral-convert';
 
 export default function Home() {
   const [numberText, setNumberText] = useState('');
 
-  const convertedNumber = numberText + ' converted';
+  const convertedNumber = latinToRomanNumeralConvert(parseInt(numberText, 10));
 
   return (
     <div className={styles.container}>
