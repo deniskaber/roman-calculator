@@ -1,14 +1,12 @@
-import { render, screen } from '@testing-library/react'
-import Home from './Home'
+import { render, screen } from '@testing-library/react';
+import Home from './Home';
 
 describe('Home', () => {
-  it('renders a heading', () => {
-    render(<Home />)
+  it('renders a number input', () => {
+    render(<Home />);
 
-    const heading = screen.getByRole('heading', {
-      name: /welcome to next\.js!/i,
-    })
+    const input = screen.getByLabelText('Input a number here');
 
-    expect(heading).toBeInTheDocument()
-  })
-})
+    expect(input).toBeInTheDocument();
+  });
+});
