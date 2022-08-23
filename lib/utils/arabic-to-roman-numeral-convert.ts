@@ -1,5 +1,5 @@
 import romanNumeral from 'roman-numeral';
 
-export const latinToRomanNumeralConvert = (latinNumber: number): string => {
+export const arabicToRomanNumeralConvert = (latinNumber: number): string => {
   return romanNumeral.convert(latinNumber);
 };

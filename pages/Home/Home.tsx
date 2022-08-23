@@ -2,12 +2,12 @@ import Head from 'next/head';
 
 import styles from './Home.module.css';
 import { useState } from 'react';
-import { latinToRomanNumeralConvert } from '../../lib/utils/latin-to-roman-numeral-convert';
+import { arabicToRomanNumeralConvert } from '../../lib/utils/arabic-to-roman-numeral-convert';
 
 export default function Home() {
   const [numberText, setNumberText] = useState('');
 
-  const convertedNumber = latinToRomanNumeralConvert(parseInt(numberText, 10));
+  const convertedNumber = arabicToRomanNumeralConvert(parseInt(numberText, 10));
 
   return (
     <div className={styles.container}>
@@ -18,7 +18,7 @@ export default function Home() {
 
       <main>
         <label>
-          Input a Latin number here:
+          Input a number here:
           <input
             className={styles['number-input']}
             value={numberText}
@@ -27,7 +27,7 @@ export default function Home() {
         </label>
 
         <label>
-          Your converted Roman Numeral:
+          Converted Roman Numeral:
           <input
             className={styles['number-input']}
             value={convertedNumber}

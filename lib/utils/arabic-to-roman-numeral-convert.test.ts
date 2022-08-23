@@ -1,4 +1,4 @@
-import { latinToRomanNumeralConvert } from './latin-to-roman-numeral-convert';
+import { arabicToRomanNumeralConvert } from './arabic-to-roman-numeral-convert';
 
 const testCases: { arab: number; roman: string }[] = [
   {
@@ -51,11 +51,11 @@ const testCases: { arab: number; roman: string }[] = [
   },
 ];
 
-describe('arabToRomanNumeralConvert', () => {
+describe('arabicToRomanNumeralConvert', () => {
   it.each(testCases)(
-    'converts arab number "$arab" to a Roman Numeral "$roman"',
+    'converts arabic number "$arab" to a Roman Numeral "$roman"',
     ({ arab, roman }) => {
-      expect(latinToRomanNumeralConvert(arab)).toBe(roman);
+      expect(arabicToRomanNumeralConvert(arab)).toBe(roman);
     },
   );
 });
