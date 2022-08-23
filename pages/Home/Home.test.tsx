@@ -32,8 +32,6 @@ describe('Home', () => {
   });
 
   it('uses arabicToRomanNumeralConvert to make number conversion', async () => {
-    const user = userEvent.setup();
-
     await user.click(input);
     await user.keyboard('123');
 

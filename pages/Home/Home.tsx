@@ -1,13 +1,19 @@
 import Head from 'next/head';
-
+import { ChangeEvent, useState } from 'react';
+import { useConvertedRomanNumeral } from '../../lib/hooks/useConvertedRomanNumeral';
 import styles from './Home.module.css';
-import { useState } from 'react';
-import { arabicToRomanNumeralConvert } from '../../lib/utils/arabic-to-roman-numeral-convert';
 
 export default function Home() {
   const [numberText, setNumberText] = useState('');
 
-  const convertedNumber = arabicToRomanNumeralConvert(parseInt(numberText, 10));
+  const { isValid, romanNumber, minPossibleValue, maxPossibleValue } =
+    useConvertedRomanNumeral(parseInt(numberText, 10));
+
+  const isInvalidInput = !isValid && numberText.length > 0;
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setNumberText(e.target.value);
+  };
 
   return (
     <div className={styles.container}>
@@ -16,21 +22,29 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <label>
-          Input a number here:
-          <input
-            className={styles['number-input']}
-            value={numberText}
-            onChange={(e) => setNumberText(e.target.value)}
-          />
-        </label>
+      <main className={styles['main-area']}>
+        <div>
+          <label className={styles['form-field']}>
+            Input a number here:
+            <input
+              className={styles['number-input']}
+              type="number"
+              value={numberText}
+              onChange={handleInputChange}
+            />
+          </label>
+          {isInvalidInput && (
+            <div className={styles['invalid-caption']}>
+              value should be between {minPossibleValue} and {maxPossibleValue}
+            </div>
+          )}
+        </div>
 
-        <label>
+        <label className={styles['form-field']}>
           Converted Roman Numeral:
           <input
             className={styles['number-input']}
-            value={convertedNumber}
+            value={romanNumber}
             readOnly
           />
         </label>

@@ -7,10 +7,32 @@
   align-items: center;
 }
 
+.main-area {
+  padding: 5rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.form-field {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
 .number-input {
-  margin-left: 8px;
+  width: 150px;
 }
 
 .number-input[readonly] {
   background-color: #e9ecef;
+}
+
+.invalid-caption {
+  font-size: 12px;
+  text-align: end;
+  color: red;
 }
