@@ -10,3 +10,7 @@
 .number-input {
   margin-left: 8px;
 }
+
+.number-input[readonly] {
+  background-color: #e9ecef;
+}

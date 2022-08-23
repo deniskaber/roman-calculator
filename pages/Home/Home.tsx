@@ -22,6 +22,11 @@ export default function Home() {
             onChange={(e) => setNumberText(e.target.value)}
           />
         </label>
+
+        <label>
+          Your converted Roman Numeral:
+          <input className={styles['number-input']} readOnly />
+        </label>
       </main>
     </div>
   );
